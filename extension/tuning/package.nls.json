@@ -1,19 +1,15 @@
 {
-    "perfadvisor.configer.server": "您还未连接远端服务器\n[配置远程服务器](command:extension.view.perfadvisorserverconfig)",
-    "perfadvisor.again.configer.server": "您已连接远端服务器\n[重新配置服务器](command:extension.view.perfadvisorserverconfig)",
-
-    "ip_address_port": "IP地址 \n端口 ",
-    "perfadvisor.free.trial": "您也可申请免费试用鲲鹏远程实验室，该环境已预装鲲鹏代码迁移工具、鲲鹏编译器、鲲鹏性能分析工具、动态二进制翻译工具（ExaGear）。\n[免费试用](command:extension.view.perfadvfreetrialremoteenvironment)",
-    "perfadvisor.no.login": "您还未登录\n[登录](command:extension.view.perfadvisorlogin)",
-    "kunpeng.tuning.suite": "鲲鹏性能分析插件",
-    "free.trial.remote.environment": "申请试用远程实验室",
-    "plugins_perfadvisor_title_upgrade": "升级服务器",
-    "plugins_perfadvisor_title_uninstall": "卸载服务器",
-    "perfadvisor.sys.advicefeedback": "建议反馈",
-    "deploy.server.end": "部署服务端",
-
-
-    "configure.remote.server": "配置远程服务器",
-    "plugins_perfadvisor_title_login": "登录性能分析工具"
-    
+  "perfadvisor.configer.server": "您还未连接远端服务器\n[配置远程服务器](command:extension.view.perfadvisorserverconfig)",
+  "perfadvisor.again.configer.server": "您已连接远端服务器\n[重新配置服务器](command:extension.view.perfadvisorserverconfig)",
+  "ip_address_port": "IP地址 \"\n端口   \"",
+  "perfadvisor.free.trial": "您也可申请免费试用鲲鹏远程实验室，该环境已预装鲲鹏代码迁移工具、鲲鹏编译器、鲲鹏性能分析工具、动态二进制翻译工具（ExaGear）。\n[免费试用](command:extension.view.perfadvfreetrialremoteenvironment)",
+  "perfadvisor.no.login": "您还未登录\n[登录](command:extension.view.perfadvisorlogin)",
+  "kunpeng.tuning.suite": "鲲鹏性能分析插件",
+  "free.trial.remote.environment": "申请试用远程实验室",
+  "plugins_perfadvisor_title_upgrade": "升级服务器",
+  "plugins_perfadvisor_title_uninstall": "卸载服务器",
+  "perfadvisor.sys.advicefeedback": "建议反馈",
+  "deploy.server.end": "部署服务端",
+  "configure.remote.server": "配置远程服务器",
+  "plugins_perfadvisor_title_login": "登录性能分析工具"
 }
