@@ -137,10 +137,11 @@ export const messageHandler = {
         console.log(data.tuningConfig[0].ip);
         console.log('Here is old config');
         console.log(originalContent.ip_address_port);
-        var temp = 'IP地址'+' '+JSON.stringify(data.tuningConfig[0].ip)+'\n'+
-                   '端口'+'   '+JSON.stringify(data.tuningConfig[0].port);
+        var temp = 'IP地址'+' '+JSON.stringify(data.tuningConfig[0].ip).substring(1, JSON.stringify(data.tuningConfig[0].ip).length - 1)+'\n'+
+                   '端口'+'   '+JSON.stringify(data.tuningConfig[0].port).substring(1, JSON.stringify(data.tuningConfig[0].port).length - 1);
         originalContent.ip_address_port = temp;
         console.log('Here is changed config');
+        console.log(temp);
         console.log(originalContent);
         return originalContent;
     },
@@ -162,6 +163,9 @@ export const messageHandler = {
         // tslint:disable-next-line:max-line-length
         const { proxyServerPort, proxy } = await ProxyManager.createProxyServer(global.context, tuningConfigObj.ip, tuningConfigObj.port);
         Utils.navToIFrame(global, proxyServerPort, proxy);
+        console.log('before calling')
+        vscode.commands.executeCommand('extension.view.perfadvfreetrialremoteenvironment')
+        console.log('after callling')
         ToolPanelManager.closePanelsByRemained('tuning', []);
     },
 
