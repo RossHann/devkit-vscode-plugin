@@ -2,7 +2,6 @@ import { I18nService, LANGUAGE_TYPE } from '../service/i18n.service';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { COLOR_THEME, VscodeService } from '../service/vscode.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-guide',
@@ -19,15 +18,11 @@ export class GuideComponent implements OnInit {
         Light: COLOR_THEME.Light
     };
     public currTheme = COLOR_THEME.Dark;
-    public pluginUrlCfg: any = {
-        freeTrialRemoteEnv: ''
-    };
 
     constructor(
         private i18nService: I18nService,
         private vscodeService: VscodeService,
         private changeDetectorRef: ChangeDetectorRef,
-        private route: ActivatedRoute,
         public sanitizer: DomSanitizer
     ) {
         this.i18n = this.i18nService.I18n();
@@ -45,18 +40,7 @@ export class GuideComponent implements OnInit {
             this.changeDetectorRef.detectChanges();
         });
 
-        // 获取全局url配置数据
-        this.vscodeService.postMessage({ cmd: 'readUrlConfig' }, (resp: any) => {
-            const res = {
-                freeTrialRemoteEnvZh: resp.freeTrialRemoteEnvZh,
-                freeTrialRemoteEnvEn: resp.freeTrialRemoteEnvEn
-            };
-            this.pluginUrlCfg = res;
-            this.initGuideList();
-            this.changeDetectorRef.markForCheck();
-            this.changeDetectorRef.detectChanges();
-        });
-        // this.initGuideList()
+        this.initGuideList()
     }
 
     private initGuideList() {
@@ -75,7 +59,6 @@ export class GuideComponent implements OnInit {
                 title: this.i18n.plugins_common_guide.install_serve,
                 info: this.i18n.plugins_common_guide.install_serve_info,
                 linkBtnText: this.i18n.plugins_common_guide.install_now,
-                href: '',
                 urlId: 0
             },
             {
@@ -92,18 +75,15 @@ export class GuideComponent implements OnInit {
                 title: this.i18n.plugins_common_guide.config_serve,
                 info: this.i18n.plugins_common_guide.config_serve_info,
                 linkBtnText: this.i18n.plugins_common_guide.config_now,
-                href: '',
                 urlId: 1
             },
         ];
     }
 
     /**
-     * 链接按钮点击事件(开始配置)
-     * @param data 数据
+     * 打开部署服务器页面
      */
-     openConfigPage(data: any) {
-        // 打开服务器配置页面
+     openConfigPage() {
         const cmdData = {
             cmd: 'openNewPage',
             data: {
@@ -114,19 +94,12 @@ export class GuideComponent implements OnInit {
             }
         };
         this.vscodeService.postMessage(cmdData, null);
-        // 关闭当前页面
-        const message = {
-            cmd: 'closePanel'
-        };
-        this.vscodeService.postMessage(message, null);
     }
 
     /**
-     * 链接按钮点击事件(开始部署)
-     * @param data 数据
+     * 打开配置服务器页面
      */
-     openInstallPage(data: any) {
-        // 打开服务器配置页面
+     openInstallPage() {
         const cmdData = {
             cmd: 'openNewPage',
             data: {
@@ -137,11 +110,6 @@ export class GuideComponent implements OnInit {
             }
         };
         this.vscodeService.postMessage(cmdData, null);
-        // 关闭当前页面
-        const message = {
-            cmd: 'closePanel'
-        };
-        this.vscodeService.postMessage(message, null);
     }
 
 }

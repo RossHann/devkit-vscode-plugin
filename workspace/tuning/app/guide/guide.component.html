@@ -20,10 +20,10 @@
             </div>
             <div class="list-item-bottom">
                 <p>
-                    <a class="link-url" *ngIf="item.urlId === 0" (click)="openConfigPage(item.href)">{{ item.linkBtnText }}
+                    <a class="link-url" *ngIf="item.urlId === 0" (click)="openConfigPage()">{{ item.linkBtnText }}
                         <img class="link-arrow" [src]="sanitizer.bypassSecurityTrustResourceUrl(item.arrowIcon)">
                     </a>
-                    <a class="link-url" *ngIf="item.urlId === 1" (click)="openInstallPage(item.href)">{{ item.linkBtnText }}
+                    <a class="link-url" *ngIf="item.urlId === 1" (click)="openInstallPage()">{{ item.linkBtnText }}
                         <img class="link-arrow" [src]="sanitizer.bypassSecurityTrustResourceUrl(item.arrowIcon)">
                     </a>
                 </p>
